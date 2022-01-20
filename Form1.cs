@@ -341,5 +341,10 @@ namespace PythonScriptTest
         {
             lstResults.Items.Clear();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LoadScript(Application.StartupPath + @"\test_simple.py");
+        }
     }
 }
