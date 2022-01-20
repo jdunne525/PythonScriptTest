@@ -71,7 +71,7 @@ namespace PythonScriptTest
 
             UIBlockingInvoke(new MethodInvoker(delegate ()
             {
-                lstResults.Items.Add(line);
+                lstResults.Items.Add(LogLine);
                 lstResults.SelectedIndex = lstResults.Items.Count - 1;
                 Application.DoEvents();
             }));
