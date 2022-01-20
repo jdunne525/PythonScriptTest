@@ -167,8 +167,11 @@ namespace PythonScriptTest
 
         private void LoadScript(string myScriptFileName, Boolean DontUpdateScriptBox = false)
         {
+            DateTime StartTime = DateTime.Now;
+
             //ScriptEngine = ScriptEngine_t.Python;
             SCPFileName = myScriptFileName;
+            //LogResults("Start LoadScript: " + myScriptFileName);
 
             if (!DontUpdateScriptBox) cbxScriptNames.Items.Clear();
 
@@ -203,6 +206,12 @@ namespace PythonScriptTest
                     cbxScriptNames.Text = cbxScriptNames.Items[0].ToString();
                 }
             }
+
+            DateTime EndTime = DateTime.Now;
+
+            var ScriptLoadTime = EndTime - StartTime;
+            LogResults("Finished loading script: " + myScriptFileName + " Time taken = " + ScriptLoadTime.TotalSeconds.ToString("0.000"));
+
         }
 
         void DisplayCompileErrors(string ScriptCompileErrors)
