@@ -363,12 +363,14 @@ namespace Scripting
 
         public string[] GetMethodNames()
         {
-            IList<string> listresult;
             System.Collections.ArrayList FunctionNames = new System.Collections.ArrayList();
 
+#if UseDir
+            IList<string> listresult;
             //get method names from python directly:
             dynamic result = engine.Execute(@"dir()", scope);
             listresult = ((IList<object>)result).Cast<string>().ToList();
+#endif
 
             MatchCollection matches;
             var pattern = @"def (\w+)\(";
@@ -398,8 +400,13 @@ namespace Scripting
                 else
                 {
                     //Only add the method if python recognizes it:
+#if UseDir
                     if (listresult.Contains(method))
                         FunctionNames.Add(method);
+#else
+                    FunctionNames.Add(method);
+#endif
+
                 }
             }
 
