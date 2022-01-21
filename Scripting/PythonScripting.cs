@@ -34,6 +34,9 @@ namespace Scripting
         public Boolean LogItemsValid = false;
         public Boolean MeterItemsValid = false;
 
+        public DateTime StartCompileTime;
+        public DateTime EndCompileTime;
+
         string LogItemScriptPath = "";
         string MeterItemScriptPath = "";
         //public string[] LogItemScriptNames = new string[20];
@@ -51,7 +54,8 @@ namespace Scripting
 
             CompileErrors = "";
             ScriptCompileErrors = "";
-            engine = Python.CreateEngine();
+
+            engine = Python.CreateEngine();     //~2-3mS
             scope = engine.CreateScope();
 
             //diag.. disable this
@@ -106,14 +110,18 @@ namespace Scripting
 
             engine.SetSearchPaths(paths);
 
+            //The above takes 1mS or less.
             try
             {
                 //This method causes the file to get locked until the application closes:
                 //ScriptSource source = engine.CreateScriptSourceFromFile(ScriptFile);
 
                 source = engine.CreateScriptSourceFromString(ScriptCode, SourceCodeKind.Statements);
-                source.Execute(scope);
+                StartCompileTime = DateTime.Now;
+                source.Execute(scope);              //100mS
+                EndCompileTime = DateTime.Now;
                 source.Compile();
+
             }
             catch (Exception ex)
             {
