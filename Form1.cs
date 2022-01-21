@@ -185,6 +185,7 @@ namespace PythonScriptTest
             //SCPFileFolder = fi.DirectoryName;
 
             myPythonHandler = new PythonScripting(this, myScriptFileName);
+
             if (myPythonHandler.CompileErrors != "")
             {
                 LogResults("Script " + fi.Name + " Contains errors.  Double-click on the below error lines to open the associated editor at the specified line.");
@@ -210,7 +211,8 @@ namespace PythonScriptTest
             DateTime EndTime = DateTime.Now;
 
             var ScriptLoadTime = EndTime - StartTime;
-            LogResults("Finished loading script: " + myScriptFileName + " Time taken = " + ScriptLoadTime.TotalSeconds.ToString("0.000"));
+            var ScriptCompileTime = myPythonHandler.EndCompileTime - myPythonHandler.StartCompileTime;
+            LogResults("Finished loading script: " + myScriptFileName + " Time taken = " + ScriptLoadTime.TotalSeconds.ToString("0.000") + "  Compile time = " + ScriptCompileTime.TotalSeconds.ToString("0.000"));
 
         }
 
