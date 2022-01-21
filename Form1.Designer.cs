@@ -42,7 +42,8 @@ namespace PythonScriptTest
             // 
             // btnEval
             // 
-            this.btnEval.Location = new System.Drawing.Point(675, 173);
+            this.btnEval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEval.Location = new System.Drawing.Point(837, 173);
             this.btnEval.Name = "btnEval";
             this.btnEval.Size = new System.Drawing.Size(113, 28);
             this.btnEval.TabIndex = 20;
@@ -70,7 +71,7 @@ namespace PythonScriptTest
             this.lstResults.HorizontalScrollbar = true;
             this.lstResults.Location = new System.Drawing.Point(12, 250);
             this.lstResults.Name = "lstResults";
-            this.lstResults.Size = new System.Drawing.Size(776, 303);
+            this.lstResults.Size = new System.Drawing.Size(938, 303);
             this.lstResults.TabIndex = 17;
             // 
             // btnRunScript
@@ -93,7 +94,8 @@ namespace PythonScriptTest
             // 
             // btnLoadScript
             // 
-            this.btnLoadScript.Location = new System.Drawing.Point(675, 30);
+            this.btnLoadScript.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadScript.Location = new System.Drawing.Point(837, 30);
             this.btnLoadScript.Name = "btnLoadScript";
             this.btnLoadScript.Size = new System.Drawing.Size(113, 36);
             this.btnLoadScript.TabIndex = 13;
@@ -103,10 +105,12 @@ namespace PythonScriptTest
             // 
             // txtOutput
             // 
+            this.txtOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtOutput.Location = new System.Drawing.Point(12, 30);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(657, 187);
+            this.txtOutput.Size = new System.Drawing.Size(819, 187);
             this.txtOutput.TabIndex = 10;
             // 
             // cbxResetExecEnv
@@ -123,7 +127,8 @@ namespace PythonScriptTest
             // 
             // btnClearResults
             // 
-            this.btnClearResults.Location = new System.Drawing.Point(675, 216);
+            this.btnClearResults.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClearResults.Location = new System.Drawing.Point(837, 216);
             this.btnClearResults.Name = "btnClearResults";
             this.btnClearResults.Size = new System.Drawing.Size(113, 28);
             this.btnClearResults.TabIndex = 22;
@@ -135,7 +140,7 @@ namespace PythonScriptTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 562);
+            this.ClientSize = new System.Drawing.Size(962, 570);
             this.Controls.Add(this.btnClearResults);
             this.Controls.Add(this.cbxResetExecEnv);
             this.Controls.Add(this.btnEval);
