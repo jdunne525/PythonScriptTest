@@ -37,6 +37,10 @@ namespace Scripting
         public DateTime StartCompileTime;
         public DateTime EndCompileTime;
 
+        public DateTime StartEngineTime;
+        public DateTime EndEngineTime;
+
+
         string LogItemScriptPath = "";
         string MeterItemScriptPath = "";
         //public string[] LogItemScriptNames = new string[20];
@@ -55,7 +59,10 @@ namespace Scripting
             CompileErrors = "";
             ScriptCompileErrors = "";
 
+            StartEngineTime = DateTime.Now;
             engine = Python.CreateEngine();     //~40mS
+            EndEngineTime = DateTime.Now;
+
             scope = engine.CreateScope();
 
             //diag.. disable this

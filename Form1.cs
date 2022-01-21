@@ -212,7 +212,8 @@ namespace PythonScriptTest
 
             var ScriptLoadTime = EndTime - StartTime;
             var ScriptCompileTime = myPythonHandler.EndCompileTime - myPythonHandler.StartCompileTime;
-            LogResults("Finished loading script: " + myScriptFileName + " Time taken = " + ScriptLoadTime.TotalSeconds.ToString("0.000") + "  Compile time = " + ScriptCompileTime.TotalSeconds.ToString("0.000"));
+            var ScriptEngineStartTime = myPythonHandler.EndEngineTime - myPythonHandler.StartEngineTime;
+            LogResults("Finished loading script: " + myScriptFileName + " Time taken = " + ScriptLoadTime.TotalSeconds.ToString("0.000") + "  Compile time = " + ScriptCompileTime.TotalSeconds.ToString("0.000") + "  Engine Start time = " + ScriptEngineStartTime.TotalSeconds.ToString("0.000"));
 
         }
 
